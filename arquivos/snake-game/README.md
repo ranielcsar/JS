@@ -5,8 +5,22 @@
 
 - Quando eu aprender mais sobre **JS**, completarei do meu jeito. :]
 
+### Atualização 2019:
 
-#### Agredeço ao Filipe Alves ([@alvesfilipe](https://github.com/alvesfilipe)) pelo tutorial bem elaborado.
+- O que foi mudado?
+  - Fruta adicionada
+  - Não morrer ao bater na parede
+  - Comer fruta e crescer
+  - Cores
+  - Interface
+  
+- O que falta?
+  - Morrer quando bater em si mesmo
+  - Pontuação
+  - Game over
+  - Pausa
+  - Mostrar pontuação final
+  - Mostrar rank
+  - Foco na tela do jogo
 
-
-- Caso queira jogar, [cliquei aqui](https://codepen.io/ranielcsar/pen/aqzQNe).
+- Caso queira acessar, [cliquei aqui](https://codepen.io/ranielcsar/pen/dEomOJ).
