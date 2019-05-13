@@ -4,7 +4,7 @@ function multi(a, b) { return a * b; }
 function divis(a, b) { return a / b; }
 
 function calcular(funcao, a, b) {
-	return funcao(a, b);
+    return funcao(a, b);
 }
 
 console.log( calcular( soma, 10, 5 ) );
