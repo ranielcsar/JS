@@ -1,0 +1,14 @@
+- Estudar matemática e reproduzir código em JS:
+
+   - revisar aritmética
+   - conjuntos numéricos
+   - múltiplos e divisores
+   - razão e proporção
+   - divisão proporcional
+   - regra de 3 simples e composta
+   - porcentagem
+   - equação do 1o grau
+   - equação do 2o grau
+   - sistema de equações
+   - sistema de medidas
+   - geometria básica
