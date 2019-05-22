@@ -59,37 +59,36 @@ function checa_se_saiu_da_tela(el) {
 function desenhar(el) {
   lapis.fillStyle = el.cor;
 
-  lapis.fillRect(el.x, el.y, el.tamanho, el.tamanho);
+  lapis.fillRect(el.x, el.y, tamanho, tamanho);
+  
+  Particulas(el);
+  animaParticulas();
+}
+
+function instrucoes() {
+  lapis.font = tamanho + "px Arial";
+  let texto = "Use as setas esquerda/direta para movimentar e cima para pular";
+  
+  lapis.fillText(texto, largura / 2 - lapis.measureText(texto).width / 2, 30);
 }
 
 function loop() {
 
   lapis.clearRect(0, 0, tela.width, tela.height);
+  
+  instrucoes();
 
   mudarDirecao(player);  
   atualizar(player);
   checa_se_saiu_da_tela(player);
-  tocou_no_chao(player);
-  desenhar(player); 
-
-  enemy.forEach(desenhar);
-  enemy.forEach(atualizar);
-  enemy.forEach(tocou_no_chao);
-
-  enemy.forEach( (el) => {
-    if (player.bateu(el))
-    {
-      el.cor = player.cor;
-    }
-  });
-
+  tocou_no_chao(player); 
+  
+  desenhar(player);
   window.requestAnimationFrame(loop);
 }
 
 function iniciar() {
   player = Elemento(50, altura, "#333");
-
-  criarInimigos();
   
   window.requestAnimationFrame(loop);
 }

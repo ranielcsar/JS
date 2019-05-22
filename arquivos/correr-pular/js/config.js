@@ -16,7 +16,7 @@ function redimensionar() {
    tela.width = largura;
    tela.height = altura;
 
-   tamanho = Math.max(Math.floor(largura / 45), Math.floor(altura / 45));
+   tamanho = Math.max(Math.floor(largura / 45), Math.floor(altura / 35));
 }
 
 redimensionar();
