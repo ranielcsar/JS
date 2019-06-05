@@ -1,6 +1,6 @@
 - Estudar matemática e reproduzir código em JS:
 
-   - revisar aritmética
+   - aritmética
    - conjuntos numéricos
    - múltiplos e divisores
    - razão e proporção
