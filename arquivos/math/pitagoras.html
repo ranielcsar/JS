@@ -1,0 +1,73 @@
+<canvas></canvas>
+<input id="total" type="range" min="50" max="500">
+
+<style>
+   canvas {
+      margin-left:  auto;
+      margin-right: auto;
+
+      background-color: "#eee";
+   }
+</style>
+
+<script>
+
+var tela  = document.querySelector('canvas'),
+    lapis = tela.getContext('2d');
+    
+ tela.width  = 500;
+ tela.height = 500;
+ 
+ 
+var p1 = { x: Math.random() * tela.width, y: Math.random() * tela.height, cor: "#c33" },
+    p2 = { x: Math.random() * tela.width, y: Math.random() * tela.height, cor: "#33c" };
+
+function pitagora(a, b) {
+   return Math.sqrt(a * a + b * b);
+}
+
+function linha() {
+   var dx = p1.x - p2.x,
+       dy = p1.y - p2.y,
+       dist = pitagora(dx, dy);
+   
+   lapis.beginPath();
+
+   // base
+   lapis.moveTo(p1.x, p1.y);
+   
+   var cb = dist / 100 * dist;
+       cb = cb / 100;
+   
+   lapis.lineTo(dist, cb);
+   lapis.stroke();
+   
+   var ab = pitagora(dist, cb);
+   
+   lapis.moveTo(dist, cb);
+   lapis.lineTo(p1.x, ab);
+   lapis.moveTo(p1.x, ab);
+   lapis.lineTo(p1.x, p1.y);
+
+   lapis.stroke();
+}
+
+function animar() {
+   lapis.clearRect(0, 0, tela.width, tela.height)
+
+   var valor = document.getElementById("total").value;
+
+   p1.x = valor;
+
+   linha();
+
+   requestAnimationFrame(animar);
+}
+
+function iniciar() {
+   animar();
+}
+
+iniciar();
+
+</script>

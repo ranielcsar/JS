@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<div id="tela">
+   <canvas></canvas>
+</div>
+
+<style>
+   #tela {
+      margin-right: auto;
+      margin-left:  auto;
+
+      width: 50%;     
+   }
+</style>
+
+<script>
+
+var tela  = document.querySelector('canvas'),
+    div   = document.getElementById('tela'),
+    lapis = tela.getContext('2d');
+
+const cores = [
+   '#663366', 
+   '#FF0033', 
+   '#28285A', 
+   '#00FFB9'
+]
+
+addEventListener('resize', () => {
+    tela.width  = div.offsetWidth;
+    tela.height = 500;
+
+    iniciar();
+})
+
+// objetos
+function Particula(x, y, raio, cor) {
+    this.x          = x;
+    this.y          = y;
+    this.raio       = raio;
+    this.cor        = cor;
+    this.radiano    = Math.random() * (Math.PI * 2);
+    this.velocidade = 0.05;
+    this.distCentro = randomEntre(40, 70);
+
+    this.update = function()
+    {
+      var ultimoPonto = {x: this.x, y: this.y};
+
+      this.radiano += this.velocidade;
+
+      this.x = x + Math.cos(this.radiano) * Math.PI * this.distCentro;
+      this.y = y + Math.sin(this.radiano) * Math.PI * this.distCentro;
+      
+      this.desenha(lapis, ultimoPonto);
+    }
+
+   this.desenha = function(c, ultimoPonto)
+   {
+      c.beginPath();
+
+      c.strokeStyle = this.cor;
+      c.lineWidth = this.raio;
+      c.moveTo(ultimoPonto.x, ultimoPonto.y);
+      c.lineTo(this.x, this.y);
+      c.stroke();
+
+      c.closePath();
+   }
+}
+
+// Implementation
+var particulas;
+
+function randomEntre(minimo, maximo) {
+   return Math.floor(Math.random() * (maximo - minimo + 1) + minimo);
+}
+
+function corRandom(cores) {
+   return cores[Math.floor(Math.random() * cores.length)];
+}
+
+function iniciar() {
+   tela.width  = div.offsetWidth;
+   tela.height = 500;
+
+   particulas = [];
+
+   for (let i = 0; i < 60; i++)
+   {
+      var raio = randomEntre(1, 5);
+
+      var cx = tela.width / 2,
+          cy = tela.height / 2;
+
+      particulas.push(new Particula(cx, cy, raio, corRandom(cores)));
+   }
+}
+
+// Animation Loop
+function animar() {
+   requestAnimationFrame(animar);
+
+   lapis.fillStyle = 'rgba(255, 255, 255, 0.05)';
+   lapis.fillRect(0, 0, tela.width, tela.height);
+
+   particulas.forEach(part => {
+      part.update();
+   });
+}
+
+iniciar();
+
+animar();
+
+</script>

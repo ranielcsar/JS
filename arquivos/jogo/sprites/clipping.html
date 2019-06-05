@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+   <head>
+      <meta charset="utf-8">
+      <title>Spritesheet - recorte e enquadramento (clipping)</title>
+
+      <style>
+         body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+         }
+
+         canvas { background-color: #16161d; }
+      </style>
+   </head>
+
+   <body>
+      <canvas></canvas>
+   </body>
+
+   <script src="spritesheet.js"></script>
+   <script>
+      var tela  = document.querySelector('canvas'),
+          lapis = tela.getContext('2d');
+
+          tela.width  = window.innerWidth;
+          tela.height = window.innerHeight;
+
+      var img     = new Image();
+          img.src = 'spritesheet3.png';
+
+      var sheet = new Spritesheet(lapis, img, 4, 4);
+
+      sheet.intervalo = 80;
+      sheet.linha     = 0;
+
+      var cx = tela.width / 2,
+          cy = tela.height / 2;      
+
+      img.onload = gameLoop;
+
+      function gameLoop() {
+         lapis.clearRect(0, 0, tela.width, tela.height);
+
+         sheet.proximoQuadro();
+         sheet.desenhar(cx, cy);
+
+         requestAnimationFrame(gameLoop);
+      }
+
+   </script>
+</html>

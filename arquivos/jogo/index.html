@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+   <head>
+      <meta charset="utf-8">
+      <title>Animação</title>
+
+      <style>
+
+         body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+
+            background-color: #16161d;
+         }
+      </style>
+   </head>
+
+   <body>
+      <canvas id="tela"></canvas>
+
+      <script src="config.js"></script>
+      <script src="teclado.js"></script>
+      <script src="heroi.js"></script>
+      <script src="bola.js"></script>
+      <script src="animacao.js"></script> 
+   </body>
+
+   <script>
+      const 
+      tela  = document.getElementById('tela'), 
+      lapis = tela.getContext('2d');
+
+      var teclado  = new Teclado(document),
+          animacao = new Animacao(lapis);
+
+      var heroi = new Heroi(lapis, teclado, animacao);         
+
+      animacao.novoSprite(heroi);
+
+      teclado.disparou(ESPACO, function() {
+         heroi.atirar();
+      });
+
+      animacao.ligar();
+
+   </script>
+</html>
