@@ -21,34 +21,30 @@
    </body>
 
    <script src="spritesheet.js"></script>
+   <script src="animacao.js"></script>
+   <script src="teclado.js"></script>
+   <script src="sonic.js"></script>
    <script>
       var tela  = document.querySelector('canvas'),
           lapis = tela.getContext('2d');
 
-          tela.width  = window.innerWidth;
-          tela.height = window.innerHeight;
+      tela.width  = 500;
+      tela.height = 500;
 
-      var img     = new Image();
-          img.src = 'spritesheet3.png';
+      var teclado  = new Teclado(document),
+          animacao = new Animacao(lapis);
 
-      var sheet = new Spritesheet(lapis, img, 4, 4);
+      var img = new Image();
+      img.src = "spritesheet.png";
 
-      sheet.intervalo = 80;
-      sheet.linha     = 0;
+      var sonic = new Sonic(lapis, teclado, img);
+      sonic.x = 0;
+      sonic.y = 200;
+      animacao.novoSprite(sonic);
 
-      var cx = tela.width / 2,
-          cy = tela.height / 2;      
-
-      img.onload = gameLoop;
-
-      function gameLoop() {
-         lapis.clearRect(0, 0, tela.width, tela.height);
-
-         sheet.proximoQuadro();
-         sheet.desenhar(cx, cy);
-
-         requestAnimationFrame(gameLoop);
+      window.onload = function()
+      {
+        animacao.ligar();
       }
-
    </script>
 </html>
