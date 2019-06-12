@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+   <head>
+      <meta charset="utf-8">
+      <title>Título</title>
+
+      <style>
+         body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; 
+
+            background-color: #eee;         
+         }
+
+         #tela {
+            background-color: #16161d;
+            width: 25em; height: 25em;
+
+            margin-top: 3em;
+            margin-left: auto;
+            margin-right: auto;
+         }
+      </style>
+   </head>
+
+   <body>
+
+      <div id="tela">
+         <canvas></canvas>
+      </div> 
+
+      <script src="js/animacao.js"></script>
+      <script src="js/fundo.js"></script>
+   </body>
+
+   <!-- MAIN -->
+   <script>
+
+      var imgEspaco = new Image();
+      imgEspaco.src = 'img/fundo-espaco.png';
+
+      var imgEstrelas = new Image();
+      imgEstrelas.src = 'img/fundo-estrelas.png';
+
+      var imgNuvens = new Image();
+      imgNuvens.src = 'img/fundo-nuvens.png';
+
+      var carregadas = 0,
+          total      = 3;
+
+      imgEspaco.onload   = carregando;
+      imgEstrelas.onload = carregando;
+      imgNuvens.onload   = carregando;
+
+      function carregando() {
+         carregadas++;
+
+         if (carregadas == total) { iniciar(); }
+      }
+
+      function iniciar() {
+         var canvas = document.querySelector('canvas'),
+             tela   = document.getElementById('tela'),
+             lapis  = canvas.getContext('2d');
+
+         canvas.width  = tela.offsetWidth;
+         canvas.height = tela.offsetHeight;
+
+
+         var fundoEspaco   = new Fundo(lapis, imgEspaco),
+             fundoEstrelas = new Fundo(lapis, imgEstrelas),
+             fundoNuvens   = new Fundo(lapis, imgNuvens);
+
+         fundoEspaco.velocidade   = 3;
+         fundoEstrelas.velocidade = 5;
+         fundoNuvens.velocidade   = 10;
+
+         var anime = new Animacao(lapis);
+         anime.novoSprite(fundoEspaco);
+         anime.novoSprite(fundoEstrelas);
+         anime.novoSprite(fundoNuvens);
+
+         anime.ligar();
+      }
+
+   </script>
+</html>
