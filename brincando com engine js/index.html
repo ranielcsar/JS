@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+   <head>
+      <meta charset="utf-8">
+      <title>Título</title>
+
+      <style>
+         body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;           
+         }
+
+         #tela {
+            background-color: #ffda8f;
+            width: 80%; height: 25em;
+
+            margin-top: 3em;
+            margin-left: auto;
+            margin-right: auto;
+         }
+      </style>
+   </head>
+
+   <body>
+
+      <div id="tela">
+         <canvas></canvas>
+      </div> 
+
+      <script src="js/animacao.js"></script>
+      <script src="js/player.js"></script>
+      <script src="js/inimigo.js"></script>
+   </body>
+
+   <script>
+      function iniciar() {
+        var canvas = document.querySelector('canvas'),
+            tela   = document.getElementById('tela'),
+            lapis  = canvas.getContext('2d');
+
+        canvas.width  = tela.offsetWidth;
+        canvas.height = tela.offsetHeight;
+
+        var anime = new Animacao(lapis);
+
+        var inimigo  = new Inimigo(lapis);
+        inimigo.x    = canvas.width / 2;
+        inimigo.y    = canvas.height / 2;
+        inimigo.velo = 2;
+        inimigo.criaBolas(3);
+
+        var inimigo2  = new Inimigo(lapis);
+        inimigo2.x    = canvas.width / 4;
+        inimigo2.y    = canvas.height / 2;
+        inimigo2.velo = 2;
+        inimigo2.criaBolas(4);
+
+        var inimigo3  = new Inimigo(lapis);
+        inimigo3.x    = canvas.width;
+        inimigo3.y    = canvas.height / 2;
+        inimigo3.velo = 2;
+        inimigo3.criaBolas(5);
+
+        anime.novoSprite(inimigo);
+        anime.novoSprite(inimigo2);
+        anime.novoSprite(inimigo3);
+        anime.ligar();
+      }
+
+      iniciar();
+   </script>
+
+</html>
