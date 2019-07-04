@@ -1,0 +1,25 @@
+<div id="tela">
+   <canvas></canvas>
+</div>
+
+<style>
+
+#tela {
+   margin: 2em auto;
+   width: 80%; height: 25em;
+   background-color: #ce3;
+}
+
+</style>
+
+<script src="animar.js"></script>
+<script src="quadrado.js"></script>
+
+<script>
+
+var q = Quadrado(50, 200);
+
+animar.novo(q);
+animar.on();
+
+</script>
