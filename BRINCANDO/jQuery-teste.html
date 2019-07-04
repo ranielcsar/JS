@@ -1,0 +1,50 @@
+<script src="http://code.JQuery.com/JQuery-1.9.1.js"></script>
+
+<div class="area">
+   Selecione seu personagem favorito:
+   <br>
+
+   <select name="Comics" multiple="multiple">
+      <option>Meliodas</option>
+      <option>Escanor</option>
+      <option>Ban</option>
+      <option>King</option>
+      <option>Merlin</option>
+   </select>
+
+   <p></p>
+</div>
+
+<script>
+
+$(document).ready( function() {
+
+   $('select').change( function() {   
+   	var escolhido = '';
+      
+      $('select option:selected').each( function() {
+      	escolhido += $(this).text() + ' ';
+      });
+      
+      $('p').text(escolhido);
+   });
+
+});
+
+</script>
+
+<style>
+
+p {
+   background-color: #ce3;
+   width: 100%;
+   color: black;
+   text-align: center;
+   position: relative;
+}
+
+.area {
+   margin: 1em 35%;
+}
+
+</style>
