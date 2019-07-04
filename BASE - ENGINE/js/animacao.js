@@ -52,7 +52,13 @@ Animacao.prototype = {
       var agora = new Date().getTime();
 
       if (this.ultimoCiclo == 0) { this.ultimoCiclo = agora; }      
-      this.tempoDecorrido = agora - this.ultimoCiclo;      
+      this.tempoDecorrido = agora - this.ultimoCiclo;
+
+      this.contexto.clearRect(
+         0, 0,
+         this.contexto.canvas.width,
+         this.contexto.canvas.height
+      );
 
       for (var i in this.sprites)
       {
@@ -80,29 +86,12 @@ Animacao.prototype = {
 
    processarExclusoes: function()
    {
-      var novoSprites = [],
-          novoProcessos = [];
+      this.sprites = this.sprites.filter(s => {
+         return this.spritesExcluir.indexOf(s) == -1;
+      });
 
-      for (var i in this.sprites)
-      {
-         if (this.spritesExcluir.indexOf(this.sprites[i]) == -1)
-         {
-            novoSprites.push(this.sprites[i]);
-         }
-      }
-
-      for (var i in this.processos)
-      {
-         if (this.processoExcluir.indexOf(this.processos[i]) == -1)
-         {
-            novoProcessos.push(this.processos[i]);
-         }
-      }
-
-      this.spritesExcluir = [];
-      this.processoExcluir = [];
-
-      this.sprites = novoSprites;
-      this.processos = novoProcessos;
+      this.processos = this.processos.filter(p => {
+         return this.processoExcluir.indexOf(p) == -1;
+      });
    }
 }

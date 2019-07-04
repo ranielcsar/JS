@@ -94,18 +94,8 @@ Colisor.prototype = {
 
    processarExclusoes: function()
    {
-      var novoArray = [];
-
-      for (var i in this.sprites)
-      {
-         if (this.spritesExcluir.indexOf(this.sprites[i]) == -1)
-         {
-            novoArray.push(this.sprites[i]);
-         }
-      }
-
-      this.spritesExcluir = [];
-
-      this.sprites = novoArray;
+      this.sprites = this.sprites.filter(s => {
+         return this.spritesExcluir.indexOf(s) == -1;
+      });
    }
 }
