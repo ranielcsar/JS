@@ -18,7 +18,7 @@ Colisor.prototype = {
 
    processar: function()
    {
-      var jaTestados = new Object();
+      var jaTestados = {};
 
       for (var i in this.sprites) {
          for (var j in this.sprites)
