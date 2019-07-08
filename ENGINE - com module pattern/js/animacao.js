@@ -103,8 +103,7 @@ function Animacao(contexto) {
          excluir: excluirSprite,
          processo: novoProcesso,
          on: ligar,
-         off: desligar,
-         s: sprites
+         off: desligar
       }
 
    })(contexto);   
