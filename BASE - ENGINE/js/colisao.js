@@ -97,5 +97,7 @@ Colisor.prototype = {
       this.sprites = this.sprites.filter(s => {
          return this.spritesExcluir.indexOf(s) == -1;
       });
+
+      this.spritesExcluir = [];
    }
 }

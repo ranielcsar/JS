@@ -93,5 +93,8 @@ Animacao.prototype = {
       this.processos = this.processos.filter(p => {
          return this.processoExcluir.indexOf(p) == -1;
       });
+
+      this.spritesExcluir  = [];
+      this.processoExcluir = [];
    }
 }
