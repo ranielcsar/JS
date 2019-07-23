@@ -1,0 +1,44 @@
+@import url('quiz.css');
+@import url('tela.css');
+
+body {
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+   font-family: sans-serif;
+
+   background-color: #202020;
+   color: white;
+}
+
+.botao {
+   width: 13em;
+   padding: 2.3%;
+   font-size: 1em;
+   margin: 1em auto;
+   font-weight: bold;
+   outline: none;
+   color: #fafafa;
+   border: 3px solid #fafafa;
+   background-color: transparent;
+
+   display: block;
+}
+   .botao:hover {
+      color: #222;
+      background-color: #fafafa;
+   }
+
+.nome-do-jogo {
+   text-align: center;
+   font-size: 2.5em;
+}
+
+.titulo {
+   font-size: 2em;
+}
+
+#tela-principal {
+   width: 90%;
+   margin: -2em auto;
+}

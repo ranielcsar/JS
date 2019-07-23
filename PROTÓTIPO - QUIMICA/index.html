@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="css/main.css">
+      <title>QUÍMICA</title>
+   </head>
+
+   <body onload="iniciar()">
+
+      <header>
+         <h2 class="nome-do-jogo">BALANCEANDO</h2>
+      </header>
+
+      <div id="tela-principal">
+
+         <div class="tela" id="inicial">
+            <h2 class="titulo">MENU</h2>
+
+            <button class="botao" id="jogar">JOGAR</button>
+            <button class="botao" id="ranking">RANKING</button>
+            <button class="botao" id="tutorial">TUTORIAL</button>            
+            <button class="botao" id="balanceamento">BALANCEAMENTO</button>            
+         </div>
+
+         <div class="tela" id="niveis">
+            <h2 class="titulo">ESCOLHA UM NÍVEL</h2>
+
+            <button class="botao" id="nivel1">NÍVEL 1</button>
+            <button class="botao" id="nivel2">NÍVEL 2</button>            
+            <button class="botao" id="nivel3">NÍVEL 3</button>
+            <button class="botao" id="voltar">VOLTAR</button>
+         </div>
+      
+         <div class="tela" id="jogo">
+            <div id="quiz"></div>
+
+            <button class="botao" id="anterior">< ANTERIOR</button>
+            <button class="botao" id="proximo">PRÓXIMA ></button>
+
+            <button class="botao" id="submeter">SUBMETER</button>
+         </div>
+
+      <script src="js/menu.js"></script>
+      <script src="js/niveis.js"></script>
+      <script src="js/quiz.js"></script>
+   </body>
+
+</html>
