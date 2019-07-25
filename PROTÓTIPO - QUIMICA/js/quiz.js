@@ -38,6 +38,43 @@ function criarQuiz() {
    mostrarSlide(0);
 }
 
+function verificarRespostas() {
+   var respostas = telaQuiz.querySelectorAll('.resposta');
+
+   reacoes.forEach( (questaoAtual, numeroQuestao) => {
+      var inputs = respostas[numeroQuestao].querySelectorAll('input');
+
+      var valores = [];
+      inputs.forEach(input => {
+         valores.push(input.value);
+      });
+      
+      var r1 = questaoAtual[0].valor,
+          r2 = questaoAtual[1].valor,
+          r3 = questaoAtual[2].valor;
+
+      var v1 = valores[0],
+          v2 = valores[1],
+          v3 = valores[2];
+
+      if (v1 == r1 && v2 == r2 && v3 == r3)
+      {
+         console.log('acertou')
+         respostas[numeroQuestao].classList.add('acertou');  
+      } else if ( verificarParcial((v1 / r1), (v2 / r2), (v3 / r3)) ) {   
+         console.log('parcial')
+         respostas[numeroQuestao].classList.add('acertouParcial'); 
+      } else {
+         respostas[numeroQuestao].classList.add('errou'); 
+         console.log('errou')
+      }
+   });   
+}
+
+function verificarParcial(v1, v2, v3) {
+   return v1 == v2 && v1 == v3 ? true : false;
+}
+
 var anterior = document.getElementById('anterior'),
     proximo  = document.getElementById('proximo');
 
@@ -79,6 +116,6 @@ function slideAnterior() {
   mostrarSlide(slideAtual - 1);
 }
 
-//botaoSubmeter.addEventListener('click', mostrarResultado);
+botaoSubmeter.addEventListener('click', verificarRespostas);
 anterior.addEventListener("click", slideAnterior);
 proximo.addEventListener("click", proximoSlide);

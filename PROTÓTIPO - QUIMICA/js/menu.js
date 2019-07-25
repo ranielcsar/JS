@@ -23,13 +23,13 @@ function play() {
 }
 
 function mostrarRanking() {
-
+   console.log('ranking');
 }
 
 function iniciarTutorial() {
-
+   console.log('tutorial');
 }
 
 function teoriaBalanceamento() {
-
+   console.log('teoria sobre balanceamento');
 }

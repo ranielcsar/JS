@@ -14,9 +14,9 @@ function carregarNivel1() {
    console.log('nivel 1 carregado');
 
    reacoes = [
-      [ {string: 'N2'}, {string: 'H2'}, {string: 'NH3' } ],
-      [ {string: 'H2'}, {string: 'O' }, {string: 'H2O' } ],
-      [ {string: 'Na'}, {string: 'Cl'}, {string: 'NaCl'} ]
+      [ {valor: 2, string: 'N2'}, {valor: 6, string: 'H2'}, {valor: 4, string: 'NH3' } ],
+      [ {valor: 4, string: 'H2'}, {valor: 3, string: 'O' }, {valor: 1, string: 'H2O' } ],
+      [ {valor: 6, string: 'Na'}, {valor: 9, string: 'Cl'}, {valor: 3, string: 'NaCl'} ]
    ];
 
    iniciarNivel();
