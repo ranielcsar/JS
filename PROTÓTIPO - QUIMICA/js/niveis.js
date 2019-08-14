@@ -10,6 +10,8 @@ n3.addEventListener('click', carregarNivel3);
 
 botaoVoltar.addEventListener('click', voltar);
 
+var reacoes = [];
+
 function carregarNivel1() {
    console.log('nivel 1 carregado');
 
@@ -39,5 +41,27 @@ function iniciarNivel() {
    telaNiveis.classList.remove('telaAtual');
    telaJogo.classList.add('telaAtual');
 
+   embaralhar(reacoes);
    criarQuiz();
+}
+
+function embaralhar(array) {
+   var ultimoNum = 0;
+
+   for (var i in array)
+   {
+      var random = Math.floor(Math.random() * array.length);
+      var auxiliar;
+      
+      if (ultimoNum == random)
+      {
+         random = Math.floor(Math.random() * array.length);
+      } else {
+         auxiliar = array[i];
+         array[i] = array[random];
+         array[random] = auxiliar;
+         
+         ultimoNum = random;
+      }
+   }
 }

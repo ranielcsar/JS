@@ -1,7 +1,7 @@
 const telaQuiz       = document.getElementById('quiz'),
-      botaoSubmeter  = document.getElementById('submeter');
+      botaoVerificar  = document.getElementById('verificar');
 
-var reacoes = [];
+var slides;
 
 function criarQuiz() {
    var output = [];
@@ -12,16 +12,16 @@ function criarQuiz() {
          var respostas = [];
 
          respostas.push(
-            `<label>
-               <input type="" name="questao${numeroQuestao}" value="">
+            `<form>
+               <input type="" name="questao${numeroQuestao}" value="" required>
                <sub>${questaoAtual[0].string} +</sub>
 
-               <input type="" name="questao${numeroQuestao}" value="">
-               <sub>${questaoAtual[1].string} =</sub>
+               <input type="" name="questao${numeroQuestao}" value="" required>
+               <sub>${questaoAtual[1].string} →</sub>
 
-               <input type="" name="questao${numeroQuestao}" value="">
+               <input type="" name="questao${numeroQuestao}" value="" required>
                <sub>${questaoAtual[2].string}</sub>
-             </label>
+             </form>
             `
          );         
 
@@ -46,7 +46,7 @@ function verificarRespostas() {
 
       var valores = [];
       inputs.forEach(input => {
-         valores.push(input.value);
+         valores.push(input.value);         
       });
       
       var r1 = questaoAtual[0].valor,
@@ -57,21 +57,27 @@ function verificarRespostas() {
           v2 = valores[1],
           v3 = valores[2];
 
-      if (v1 == r1 && v2 == r2 && v3 == r3)
+      if (v1 == '' || v2 == '' || v3 == '')
       {
+        return;
+      } else if (v1 == r1 && v2 == r2 && v3 == r3) {
          console.log('acertou')
-         respostas[numeroQuestao].classList.add('acertou');  
+         slides[numeroQuestao].classList.add('acertou');  
       } else if ( verificarParcial((v1 / r1), (v2 / r2), (v3 / r3)) ) {   
          console.log('parcial')
-         respostas[numeroQuestao].classList.add('acertouParcial'); 
+         slides[numeroQuestao].classList.add('acertouParcial'); 
       } else {
-         respostas[numeroQuestao].classList.add('errou'); 
+         slides[numeroQuestao].classList.add('errou'); 
          console.log('errou')
-      }
+      }      
    });   
 }
 
 function verificarParcial(v1, v2, v3) {
+   v1 = Math.abs(v1);
+   v2 = Math.abs(v2);
+   v3 = Math.abs(v3);
+
    return v1 == v2 && v1 == v3 ? true : false;
 }
 
@@ -81,7 +87,7 @@ var anterior = document.getElementById('anterior'),
 var slideAtual = 0;
 
 function mostrarSlide(n) {
-   var slides = document.querySelectorAll('.slide')
+   slides = document.querySelectorAll('.slide');
 
    slides[slideAtual].classList.remove('slideAtual');
    slides[n].classList.add('slideAtual');
@@ -100,11 +106,12 @@ function mostrarSlide(n) {
 
    if (slideAtual == slides.length - 1)
    {
-      proximo.style.display = 'none';
-      botaoSubmeter.style.display = 'inline-block';
+      proximo.style.opacity = 0.3;
+      proximo.disabled = true;
    } else {
       proximo.style.display = 'inline-block';
-      botaoSubmeter.style.display = 'none';
+      proximo.disabled = false;
+      proximo.style.opacity = 1;
    }
 }
 
@@ -116,6 +123,6 @@ function slideAnterior() {
   mostrarSlide(slideAtual - 1);
 }
 
-botaoSubmeter.addEventListener('click', verificarRespostas);
+botaoVerificar.addEventListener('click', verificarRespostas);
 anterior.addEventListener("click", slideAnterior);
 proximo.addEventListener("click", proximoSlide);

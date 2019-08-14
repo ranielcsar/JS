@@ -1,0 +1,60 @@
+.botao {
+   width: 21.6081%;
+   padding: 1.855%;
+   font-size: 1.45vw;
+   margin: 1em auto;
+   font-weight: bold;
+   outline: none;
+   text-align: center;
+   border: 3px solid #333;   
+   background-color: transparent;
+   transition: 150ms;
+
+   display: block;
+}
+   .botao:hover {
+      background-color: #7f4782;
+      border-color: transparent;
+      color: #fafafa;
+      transform: scale(1.06);
+   }
+
+#nivel1, #nivel2, #nivel3 { color: #000; }
+
+#nivel1 {
+   background-color: #DFF2D8;
+}
+
+#nivel2 {
+   background-color: #C6DEA6;
+}
+
+#nivel3 {
+   background-color: #ADE25D;
+}
+
+#jogar {
+   background-color: #7f4782;
+   color: #fafafa;
+}
+
+#jogo > button {
+   display: inline-block;
+   margin: 0 3em;
+}
+
+#anterior:hover, #proximo:hover, #voltar:hover {
+   background-color: #333;
+   color: #fafafa;
+}
+
+#verificar {
+   position: absolute;
+   top: 62%;
+   left: 34%;
+}
+
+#verificar:hover {
+   background-color: #7f4782;
+   color: #fafafa;
+}

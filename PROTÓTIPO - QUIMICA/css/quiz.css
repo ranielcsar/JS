@@ -1,37 +1,41 @@
 .resposta input {
-   padding: 10px;
+   padding: .85%;
    border-radius: 11px;
-   border: none;
+   border: 1px solid #333;
    outline: none;
-   width: 5%;
+   width: 9.5%;
    font-size: 22px;
    text-align: right;
 }
 
 .acertou {
-   color: green;
+   background-color: #a1dd70;
 }
 
 .acertouParcial {
-   color: yellow;
+   background-color: #facf5a;
 }
 
 .errou {
-   color: red;
+   background-color: #f30925;
 }
 
 /* QUIZ SLIDE */
 .slide {
    position: absolute;
-   left: 0px;
-   top: 0px;
-   width: 100%;
-   margin: 36vh auto;
+   left: 50%;
+   top: 32%;
+   transform: translate(-50%, -32%);
+   width: 54%;
+   padding: 1.2em 0;
+   font-size: 4vw;
+
+   border: 1px solid #333;
+   border-radius: 5px;   
+
    z-index: 1;
    opacity: 0;
    transition: opacity 0.4s;
-
-   font-size: 4vw;
 }
 
 .slideAtual {
@@ -43,9 +47,3 @@
    height: 20em;
    margin: 0 -5em;
 }
-
-#jogo > button {
-   display: inline-block;
-   margin: 0 3.2em;
-   justify-content: center;
-} 

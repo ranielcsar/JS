@@ -11,7 +11,7 @@ balanceamento.addEventListener('click', teoriaBalanceamento);
 
 var telaInicial = document.getElementById('inicial'),
     telaNiveis  = document.getElementById('niveis'),
-    telaJogo  = document.getElementById('jogo');
+    telaJogo    = document.getElementById('jogo');
 
 function iniciar() {
    telaInicial.classList.add('telaAtual');
