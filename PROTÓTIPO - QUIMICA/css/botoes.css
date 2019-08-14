@@ -48,9 +48,24 @@
    color: #fafafa;
 }
 
-#verificar {
+#anterior, #proximo, #verificar {
    position: absolute;
-   top: 62%;
+}
+
+#anterior, #proximo {
+   top: 78%;
+}
+
+#anterior {
+   left: 19%;
+}
+
+#proximo {
+   left: 50.4%;
+}
+
+#verificar {   
+   top: 60%;
    left: 34%;
 }
 
