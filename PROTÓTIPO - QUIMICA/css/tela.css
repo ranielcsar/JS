@@ -1,7 +1,7 @@
 .tela {
    text-align: center;
 
-   width: 87%;
+   width: 95%;
    margin: auto;
    
    transition: opacity 0.7s ease-in;
@@ -12,5 +12,29 @@
 
 .telaAtual {
    opacity: 1;
-   height: 77vh;
+   height: 75vh;
+}
+
+@media screen and (min-width: 375px) {
+   .telaAtual {
+      height: 73vh;
+   }
+}
+
+@media screen and (min-width: 425px) {
+   .telaAtual {
+      height: 71vh;
+   }
+}
+
+@media screen and (min-width: 1360px) {
+   .telaAtual {
+      height: 73vh;
+   }
+}
+
+@media screen and (min-width: 1440px) {
+   .telaAtual {
+      height: 79vh;
+   }
 }

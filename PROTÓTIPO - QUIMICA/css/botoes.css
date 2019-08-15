@@ -1,7 +1,7 @@
 .botao {
-   width: 21.6081%;
-   padding: 1.855%;
-   font-size: 1.45vw;
+   width: 70.6081%;
+   padding: 6%;
+   font-size: 5vw;
    margin: 1em auto;
    font-weight: bold;
    outline: none;
@@ -57,19 +57,115 @@
 }
 
 #anterior {
-   left: 19%;
+   left: -9%;
 }
 
 #proximo {
-   left: 50.4%;
+   left: 39.4%;
 }
 
 #verificar {   
    top: 60%;
-   left: 34%;
+   left: 16.6%;
 }
 
 #verificar:hover {
    background-color: #7f4782;
    color: #fafafa;
+}
+
+/* Mobile M */
+@media only screen and (min-width: 375px) {
+   .botao {
+      width: 61.6081%;
+      padding: 5.5%;
+      font-size: 4vw;
+   }
+}
+
+@media only screen and (max-width: 425px) {
+   .botao {
+      padding: 4.7%;
+      font-size: 3.5vw;
+   }
+
+   #anterior, #proximo, #verificar {
+      width: 42%;
+      padding: 3.5%;
+   }
+
+   #anterior {
+      left: -6.5%;
+   }
+
+   #proximo {
+      left: 42.4%;
+   }
+
+   #verificar {   
+      top: 59%;
+      left: 19%;
+   }
+}
+
+@media only screen and (min-width: 768px) {
+   .botao {
+      width: 35.6081%;
+      padding: 2.35%;
+      font-size: 2.25vw;
+   }
+
+   #anterior, #proximo, #verificar {
+      width: 32%;
+      padding: 2.5%;
+      font-size: 2vw;
+   }
+
+   #anterior {
+      left: 7.5%;
+   }
+
+   #proximo {
+      left: 46.4%;
+   }
+
+   #verificar {   
+      top: 62%;
+      left: 28%;
+   }
+}
+
+@media only screen and (min-width: 1360px) {
+   .botao {
+      width: 28.6081%;
+      padding: 1.855%;
+      font-size: 1.5vw;
+   }
+
+   #anterior, #proximo, #verificar {
+      width: 30%;
+      padding: 2%;
+      font-size: 1.35vw;
+   }
+
+   #anterior {
+      left: 12%;
+   }
+
+   #proximo {
+      left: 52%;
+   }
+
+   #verificar {   
+      top: 60%;
+      left: 30%;
+   }
+}
+
+@media only screen and (min-width: 1440px) {
+   .botao {
+      width: 28.6081%;
+      padding: 1.855%;
+      font-size: 2vw;
+   }
 }
