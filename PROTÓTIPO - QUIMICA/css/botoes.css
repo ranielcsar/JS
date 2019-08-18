@@ -1,8 +1,8 @@
 .botao {
    width: 70.6081%;
-   padding: 6%;
+   padding: 5%;
    font-size: 5vw;
-   margin: 1em auto;
+   margin: 5.2vh auto;
    font-weight: bold;
    outline: none;
    text-align: center;
@@ -19,19 +19,9 @@
       transform: scale(1.06);
    }
 
-#nivel1, #nivel2, #nivel3 { color: #000; }
-
-#nivel1 {
-   background-color: #DFF2D8;
-}
-
-#nivel2 {
-   background-color: #C6DEA6;
-}
-
-#nivel3 {
-   background-color: #ADE25D;
-}
+#nivel1 { background-color: #a0cc78; }
+#nivel2 { background-color: #589167; }
+#nivel3 { background-color: #207561; }
 
 #jogar {
    background-color: #7f4782;
@@ -39,8 +29,9 @@
 }
 
 #jogo > button {
-   display: inline-block;
-   margin: 0 3em;
+   font-size: 2vh;
+   padding: 4.6875%;
+   width: 42.5%;
 }
 
 #anterior:hover, #proximo:hover, #voltar:hover {
@@ -57,16 +48,16 @@
 }
 
 #anterior {
-   left: -9%;
+   left: 5.3118%;
 }
 
 #proximo {
-   left: 39.4%;
+   left: 51.7015%;
 }
 
 #verificar {   
-   top: 60%;
-   left: 16.6%;
+   top: 52.9524%;
+   left: 28.6837%;
 }
 
 #verificar:hover {
@@ -79,14 +70,16 @@
    .botao {
       width: 61.6081%;
       padding: 5.5%;
+      margin: 4.2vh auto;
       font-size: 4vw;
    }
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (min-width: 425px) {
    .botao {
       padding: 4.7%;
-      font-size: 3.5vw;
+      font-size: 3.5vw;      
+      margin: 3.8vh auto;
    }
 
    #anterior, #proximo, #verificar {
@@ -95,16 +88,16 @@
    }
 
    #anterior {
-      left: -6.5%;
+      left: 4.7825%;
    }
 
    #proximo {
-      left: 42.4%;
+      left: 53.1391%;
    }
 
    #verificar {   
-      top: 59%;
-      left: 19%;
+      top: 58.6762%;
+      left: 29.8823%;
    }
 }
 
@@ -112,26 +105,36 @@
    .botao {
       width: 35.6081%;
       padding: 2.35%;
-      font-size: 2.25vw;
+      font-size: 2.45vw;
+      margin: 3.7vh auto;
    }
 
-   #anterior, #proximo, #verificar {
-      width: 32%;
-      padding: 2.5%;
-      font-size: 2vw;
+   #jogo > button {
+      width: 36%;
+      padding: 2.4%;
+      font-size: 2.4vw;
    }
 
    #anterior {
-      left: 7.5%;
+      left: 5.9267%;
    }
 
    #proximo {
-      left: 46.4%;
+      left: 57.43769%;
    }
 
    #verificar {   
-      top: 62%;
-      left: 28%;
+      top: 58.1007%;
+      left: 31.2675%;
+   }
+}
+
+@media only screen and (min-width: 1024px) {
+   .botao {
+      width: 31.6081%;
+      padding: 2%;
+      font-size: 1.75vw;
+      margin: 2.65vh auto;
    }
 }
 
@@ -139,26 +142,27 @@
    .botao {
       width: 28.6081%;
       padding: 1.855%;
-      font-size: 1.5vw;
+      font-size: 1.8vw;
+      margin: 2.62vh auto;
    }
 
-   #anterior, #proximo, #verificar {
-      width: 30%;
-      padding: 2%;
-      font-size: 1.35vw;
+   #jogo > button {
+      width: 32%;
+      padding: 2.2%;
+      font-size: 1.55vw;
    }
 
    #anterior {
-      left: 12%;
+      left: 4.1213%;
    }
 
    #proximo {
-      left: 52%;
+      left: 64.2933%;
    }
 
    #verificar {   
-      top: 60%;
-      left: 30%;
+      top: 55.1805%;
+      left: 34.0859%;
    }
 }
 

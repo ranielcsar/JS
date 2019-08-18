@@ -12,7 +12,7 @@
 
 .telaAtual {
    opacity: 1;
-   height: 75vh;
+   height: auto;
 }
 
 @media screen and (min-width: 375px) {

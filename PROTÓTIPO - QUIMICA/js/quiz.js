@@ -1,5 +1,6 @@
 const telaQuiz       = document.getElementById('quiz'),
       botaoVerificar  = document.getElementById('verificar');
+      botaoVerificar.style.display = 'none';
 
 var slides;
 
@@ -96,7 +97,8 @@ function mostrarSlide(n) {
 
    if (slideAtual == 0)
    {
-      anterior.disabled = true;
+      anterior.disabled = true; 
+      botaoVerificar.style.display = 'inline-block';     
       anterior.style.opacity = 0.3;
    } else {
       anterior.style.display = 'inline-block';
@@ -122,6 +124,13 @@ function proximoSlide() {
 function slideAnterior() {
   mostrarSlide(slideAtual - 1);
 }
+
+addEventListener('keydown', function(evento) {
+  if (evento.keyCode == 13)
+  {
+    verificarRespostas();
+  }
+});
 
 botaoVerificar.addEventListener('click', verificarRespostas);
 anterior.addEventListener("click", slideAnterior);
