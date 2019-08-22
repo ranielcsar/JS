@@ -28,7 +28,7 @@
    transition: opacity 0.4s;
 }
 
-.resposta input {
+.resposta > input {
    padding: .85%;
    border-radius: 11px;
    border: 1px solid #333;
@@ -50,7 +50,7 @@
 
 @media only screen and (min-width: 375px) {
    .slide {
-       font-size: 3.8vh;
+      font-size: 3.8vh;
       left: 50.5%;   
    }
 }
@@ -68,7 +68,7 @@
       font-size: 4.8vh;
    }
 
-   .resposta input {
+   .resposta > input {
       width: 12%;
    }
 }
@@ -80,7 +80,11 @@
       font-size: 7vh;
    }
 
-   .resposta input {
+   .resposta.campos-4 {
+      font-size: 5vh;
+   }
+
+   .resposta > input {
       width: 12%;
    }
 }
