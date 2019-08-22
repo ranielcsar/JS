@@ -14,12 +14,19 @@ function criarQuiz() {
          var respostas = [];
 
          function sinal(n) {
-            var valor = questaoAtual.length;            
+            var valor = questaoAtual.length;           
 
-            if (valor == 4 && n == 1 || valor == 3 && n == 1)
+            if (n == 1 && valor >= 3)
             {
                return '→';
-            } else if (n == valor - 1) {               
+            }
+
+            if (valor == 2 && n == 0)
+            {
+               return '→';
+            }
+
+            if (n == valor - 1) {               
                return '';
             } else {
                return '+';

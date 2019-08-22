@@ -51,6 +51,7 @@ body {
    .cabecalho h2 {
       padding: 0.35em;
       font-size: 7.5vw;
+      margin: 0 5.2436%;
    }
 
    .cabecalho:before, .cabecalho:after {
