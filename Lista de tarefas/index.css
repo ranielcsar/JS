@@ -1,0 +1,158 @@
+html {
+   font-family: verdana, sans-serif;
+   font-size: 16px;
+}
+
+body {
+   display: flex;
+   height: 100vh;
+   margin: 0;
+}
+
+button {
+   outline: none;
+   border: none;
+   background-color: transparent;
+}
+
+ul, li { list-style: none; }
+
+p { line-height: 1.5; }
+
+
+/* ------ CONTAINER ------ */
+.container > * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+.container {
+   width: 23rem;
+   min-height: 16rem;
+   background-color: #F7F7F7;
+   margin: auto;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 2rem 1rem;
+   border-radius: 8px;
+   overflow-y: scroll;
+
+   box-shadow:
+      0 2px 2px #77777740,
+      0 4px 4px #77777725,
+      0 8px 8px #77777720,
+      0 12px 12px #77777710;
+}
+
+.container h2 {
+   font-size: 2rem;
+}
+
+/* ------ SCROLL BAR ------ */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+/* ------ ADICIONAR ------ */
+.adicionar {
+   margin: 1rem 0;
+}
+
+.adicionar input {
+   border: none;
+   background-color: #B5B0B0;
+   padding: 12px;
+   padding-right: 52px;
+   font-size: 1rem;
+}
+
+.adicionar input::placeholder { color: #333; }
+
+.adicionar button {
+   background-color: #333;
+   padding: 12px;
+   color: white;
+   font-size: 1rem;
+}
+
+/* ------ LISTA ------ */
+#lista {
+   width: 90%;
+   margin-top: 1rem;
+}
+
+#lista li {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   background-color: #EEE;
+   padding: 0 16px;
+   margin-bottom: 8px;
+}
+
+/* ------ ACTIONS ------ */
+.actions {
+   border-left: 2px solid #CCC;
+   display: flex;
+   align-items: center;
+   padding-left: 16px;
+}
+
+.done {  
+   padding: 11px;
+   position: relative;
+   background-color: #E7F6D5;
+   margin-right: 16px;
+}
+
+.done:after {
+   content: '';
+   position: absolute;
+   top: 4px;
+   left: 8px;
+
+   border: solid #689F38;
+   border-width: 0 3px 3px 0;
+   padding: 0 3px 9px 0;
+   transform: rotate(45deg);
+}
+
+.done:hover {
+   background-color: #689F38;
+}
+
+.done:hover:after {
+   border-color: #E7F6D5;
+}
+
+.delete {
+   font-size: 1.2rem;
+   font-weight: bold;
+   background-color: #FFDDE0;
+   color: #D32F2F;
+}
+
+.delete:hover {
+   background-color: #D32F2F;
+   color: #FFDDE0;
+}
+
+.concluido p {
+   color: #689F38;   
+   text-decoration: line-through;
+}
