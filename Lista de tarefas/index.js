@@ -9,15 +9,15 @@ const adicionarTarefa = () => {
 
    let tarefa = {
       id: tarefas.length + 1,
-      text: texto,
-      isComplete: false
+      texto: texto,
+      estaConcluida: false
    }
 
    input.value = '';
    tarefas.push(tarefa);
    atualizarLista(tarefas);
 
-   console.log(tarefas);
+   log(tarefas);
 }
 
 const deletarTarefa = (id) => {
@@ -27,15 +27,15 @@ const deletarTarefa = (id) => {
 
    atualizarLista(tarefas);
 
-   console.log(tarefas);
+   log(tarefas);
 }
 
 const concluirTarefa = (id) => {
    let novoTarefas = tarefas.map(tarefa =>
       tarefa.id === id ? ({
          id: id,
-         text: tarefa.text,
-         isComplete: !tarefa.isComplete
+         texto: tarefa.texto,
+         estaConcluida: !tarefa.estaConcluida
       }) : tarefa
    );
 
@@ -43,55 +43,45 @@ const concluirTarefa = (id) => {
 
    atualizarLista(tarefas);
 
-   console.log(tarefas);
+   log(tarefas);
 }
 
 
 /* ------ CRIANDO ELEMENTOS ------ */
-const criarEl = (el) => document.createElement(el);
-const anexarEl = (parent, child) => parent.appendChild(child);
-
-const criarBotao = (classe) => {
-   let button = criarEl('button');
-
-   classe ? button.classList.add(classe) : '';
-
-   return button;
-}
+const el = Elemento();
 
 const criarTarefa = (tarefa) => {
-   const { id, text, isComplete } = tarefa;
+   const { id, texto, estaConcluida } = tarefa;
 
-   let li = criarEl('li');
-   let p = criarEl('p');
-   let div = criarEl('div');
-   let done = criarBotao('done');   
-   let del = criarBotao('delete');   
+   let novaTarefa = el.criar('li');
+   let tarefaTexto = el.criar('p');
+   let actions = el.criar('div', 'actions');
+   let done = el.criar('button', 'done');   
+   let del = el.criar('button', 'delete');   
 
-   p.innerHTML = text;
-   div.classList.add('actions');
+   tarefaTexto.innerHTML = texto;
    del.innerHTML = 'x';
 
-   isComplete ? li.classList.toggle('concluido') : '';
+   estaConcluida ? el.adicionarClasse(novaTarefa, 'concluido') : '';
 
    done.onclick = function() { concluirTarefa(id) };
    del.onclick = function() { deletarTarefa(id) };
 
-   anexarEl(li, p);
-   anexarEl(div, done);
-   anexarEl(div, del);
-   anexarEl(li, div);
+   el.anexar(tarefaTexto, novaTarefa);
+   el.anexar(done, actions);
+   el.anexar(del, actions);
+   el.anexar(actions, novaTarefa);
 
-   return li;
+   return novaTarefa;
 }
 
 /* ------ ADICIONANDO ELEMENTOS ------ */
 const listarTarefas = (tarefas) => {   
-   const lista = document.querySelector('#lista');   
+   let lista = document.querySelector('#lista');   
 
    if (tarefas.length === 0)
    {      
-      lista.innerHTML = 'Sem tarefas. :/';
+      lista.innerHTML = 'Sem tarefas :/';
       lista.style.textAlign = 'center';
    } else {
       lista.innerHTML = '';
@@ -101,7 +91,7 @@ const listarTarefas = (tarefas) => {
    tarefas.forEach(tarefa => {
       let t = criarTarefa(tarefa);
 
-      anexarEl(lista, t);
+      el.anexar(t, lista);
    });        
 }
 
@@ -109,9 +99,16 @@ const atualizarLista = (novaLista) => {
    var lista = document.querySelector('#lista');
    var lis = lista.querySelectorAll('li');
 
-   lis.forEach(li => lista.removeChild(li));
+   lis.forEach(li => el.remover(li, lista));
 
    listarTarefas(novaLista);
 }
 
-listarTarefas(tarefas);
+const iniciar = () => {
+   let add = document.querySelector('#add');
+       add.addEventListener('click', adicionarTarefa);
+
+   listarTarefas(tarefas);
+}
+
+iniciar();
