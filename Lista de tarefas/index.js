@@ -20,8 +20,10 @@ const adicionarTarefa = () => {
    log(tarefas);
 }
 
+function porID(id) { return (el) => el.id !== id; }
+
 const deletarTarefa = (id) => {
-   let novoTarefas = tarefas.filter(tarefa => tarefa.id !== id);
+   let novoTarefas = filtrar(tarefas, porID(id));
 
    tarefas = novoTarefas;
 
@@ -30,14 +32,17 @@ const deletarTarefa = (id) => {
    log(tarefas);
 }
 
-const concluirTarefa = (id) => {
-   let novoTarefas = tarefas.map(tarefa =>
-      tarefa.id === id ? ({
+function concluir(id) {
+   return (el) =>
+      el.id === id ? ({
          id: id,
-         texto: tarefa.texto,
-         estaConcluida: !tarefa.estaConcluida
-      }) : tarefa
-   );
+         texto: el.texto,
+         estaConcluida: !el.estaConcluida
+      }) : el
+}
+
+const concluirTarefa = (id) => {
+   let novoTarefas = mapear(tarefas, concluir(id));
 
    tarefas = novoTarefas;
 
