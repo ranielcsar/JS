@@ -36,10 +36,10 @@ function moverPlayer(evento) {
 }
 
 function iniciar() {
-   player = new Elemento((altura / 2), 'player', '#186697');
-   enemy = new Elemento((altura / 2), 'enemy', '#191919');
+   player = Elemento((altura / 2), 'player', '#186697');
+   enemy = Elemento((altura / 2), 'enemy', '#191919');
 
-   observer = new Observador();
+   observer = Observador();
 
    observer.add(enemy);
 

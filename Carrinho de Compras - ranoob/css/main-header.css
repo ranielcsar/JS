@@ -1,0 +1,46 @@
+.main-header {
+   width: 100%;
+   background-color: #1D222B;
+   color: #F7F7F7;
+}
+
+.header {
+   width: var(--largura);
+   margin: auto;
+
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   padding: 20px 24px;
+}
+
+.header__title {
+   letter-spacing: 2px;   
+}
+
+.header__title a {
+   color: #F7F7F7;
+   text-decoration: none;
+}
+
+.header__menu {
+   width: 40px;
+   height: 40px;
+   filter: invert();
+   position: relative;
+}
+
+.itens-total {
+   width: 26px;
+   height: 26px;
+   padding: 4.4px 3px;
+   text-align: center;
+   font-size: 13px;
+   font-weight: bold;
+   background-color: #19B39E;
+   color: black;
+   border-radius: 50%;
+   position: absolute;
+   top: -5px;
+   right: -10px;
+}

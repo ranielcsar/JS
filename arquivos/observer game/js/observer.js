@@ -1,15 +1,21 @@
-function Observador() {
-   this.observers = [];
+const Observador = () => {
+   var observers = [];
+
+   function add(observer) {
+      observers.push(observer);
+   }
+
+   function remove(observer) {
+      observers.splice(observer, 1);
+   }
+
+   function notificar(data) {
+      observers.forEach(obs => data);
+   }
+
+   return {
+      add,
+      remove,
+      notificar
+   }
 }
-
-Observador.prototype.add = function(observer) {
-   this.observers.push(observer);
-};
-
-Observador.prototype.remove = function(observer) {
-   this.observers.splice(observer, 1);
-};
-
-Observador.prototype.notificar = function(data) {
-  this.observers.forEach(obs => data);
-};

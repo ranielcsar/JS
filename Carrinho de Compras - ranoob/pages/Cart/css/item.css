@@ -1,0 +1,59 @@
+.item {
+   display: grid;
+   grid-template-columns: 2rem 12rem 12rem 3rem 10rem 3rem 7rem;
+   align-items: center;
+   padding: 10px 20px;
+   border-bottom: 2px solid #E6E6E6;
+}
+
+.item__titulo {
+   grid-column: 2 / 3;
+}
+
+.item__imagem {
+   grid-column: 3 / 4;
+   height: auto;
+}
+
+.item__preco {
+   grid-column: 5 / 6;
+}
+
+.item__quantidade {
+   grid-column: 7 / 8;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+#item__qnt {
+   background-color: #19B39E;
+   color: #F7F7F7;
+   width: 32px;
+   height: 32px;
+   padding: 6px;
+   text-align: center;
+   border-radius: 50%;
+}
+
+.item__quantidade-btn {
+   font-size: 1rem;
+   font-weight: bold;
+   background-color: lightgray;
+   color: #423D3D;
+   padding: 3px 10px;
+   cursor: pointer;
+}
+
+.item__btn-remover {
+   grid-column: 8 / 9;
+   width: 65%;
+   color: #E64C61;
+   font-size: 1.3rem;
+   cursor: pointer;
+   justify-self: center;
+}
+
+.item__btn-remover:hover {
+   color: #C11027;
+}
