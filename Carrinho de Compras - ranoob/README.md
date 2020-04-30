@@ -1,8 +1,5 @@
 <h1 align = "center"><b>Carrinho de compras (Shopping Cart)</h1>
 
----
-
-
 <p align = "justify">
    Fiz esse carrinho de compras pra simular um site de vendas, com base no que eu aprendi sobre JS
    ao longo do tempo. Usei a lógica padrão de um carrinho, sem olhar nenhum tutorial.
