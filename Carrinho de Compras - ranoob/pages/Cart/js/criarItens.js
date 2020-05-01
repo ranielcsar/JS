@@ -5,7 +5,7 @@ const criarItens = (item) => (
             <img src=${item.imagem}>
          </div>
 
-         <span class="item__preco">Preço/KG: <b>R$ ${item.preco}</b></span>
+         <span class="item__preco">Total: <b>R$ ${subTotal(item)}</b></span>
 
          <div class="item__quantidade">
             <button class="item__quantidade-btn" onclick="add_remove(${item.id}, '-')">-</button>
@@ -17,6 +17,18 @@ const criarItens = (item) => (
       </div>
    `
 )
+
+const subTotal = (item) => {
+   let total = 0;
+
+   let preco = item.preco.replace(',', '.');
+
+   total = parseFloat(preco) * item.quantidade;
+
+   let subtotal = total.toString().replace('.', ',');
+
+   return subtotal;
+}
 
 const valorTotal = () => {   
    let itens = store.getState();
@@ -32,7 +44,7 @@ const valorTotal = () => {
 
    let html = `
       <div class="preco__total">
-         <p>Valor total: <b>R$ ${valor}</b></p>
+         <p>Valor total da compra: <b>R$ ${valor}</b></p>
       </div>
    `;
 

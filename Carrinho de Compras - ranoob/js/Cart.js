@@ -20,16 +20,10 @@ const Cart = () => {
       setStore(carrinho);
    }
 
-   const setStore = (cart) => {
-      let newState = {
-         carrinho: cart
-      }
-
-      store.setState(newState);
-   } 
+   const setStore = (cart) => { store.setState({ carrinho: cart }); }
 
    function porID(id) { return (item) => item.id !== id }
-   
+
    const remover = (id) => {
       let novoCarrinho = filtrar(carrinho, porID(id));
 
@@ -48,12 +42,9 @@ const Cart = () => {
 
    const totalItens = () => calculoTotal();
 
-   const getCart = () => carrinho;
-
    return {
       add,
       remover,
-      total: totalItens,
-      get: getCart
+      total: totalItens
    }
 }

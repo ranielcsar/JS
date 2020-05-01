@@ -22,18 +22,18 @@ const addItem = (id) => {
    let item = itens.find(item => item.id === id);
 
    cart.add(item);
-   itensTotal();
+   cartIcon();
 }
 
-const itensTotal = () => {
+const cartIcon = () => {
    var total = cart.total();
    var menu = document.querySelector('.header__menu');
-   var itensTotal = el.criar('div', 'itens-total');
 
-   let divs = menu.querySelectorAll('div');
-   divs.forEach(div => el.remover(menu, div));
-
-   itensTotal.innerHTML = total;
-
-   el.anexar(menu, itensTotal); 
+   let html =`
+      <a href="pages/Cart/index.html">
+         ${ total === 0 ? '' : `<div class="itens-total">${total}</div>` }
+         <img src="https://img.icons8.com/pastel-glyph/64/000000/shopping-cart--v2.png"/>
+      </a>
+   `
+   menu.innerHTML = html;
 }
