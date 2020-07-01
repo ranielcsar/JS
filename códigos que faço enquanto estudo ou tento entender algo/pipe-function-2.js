@@ -1,4 +1,4 @@
-/*~ - pipe function -  ~*/
+/*~  - pipe function -  ~*/
 const pipe = (...functions) => {  
    return (initialValue) => {      
       return functions.reduce(
