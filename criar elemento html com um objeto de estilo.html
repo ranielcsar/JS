@@ -2,7 +2,8 @@
 -
 - fiz pensando no styled components e meio que no atomic-css  >[ranoob 2020]<
 - refeito (refatorado) usando composição de funções / 27 jun. 2020.
--
+- codepen: https://codepen.io/ranielcsar/pen/YzwxLvd
+- 
 -->
 
 <body></body>
@@ -11,18 +12,18 @@
 
 const style = {
    padding: '12px 20px',
-   color: '#58764E',
+   color: '#242630',
    fontSize: '60px',
    fontFamily: 'verdana, sans-serif',
    outline: 'none',
-   border: '4px solid #58764E',
-   backgroundColor: '#1D2824',
+   border: '4px solid #242630',
+   backgroundColor: 'tomato',
    borderRadius: '8px',
    margin: 'auto',
    textAlign: 'center'
 };
 
-const composeFunction = (...functions) => {	
+const pipe = (...functions) => { 
     return (initialValue) => {      
         return functions.reduce(
             (accumulator, fn) => fn(accumulator),
@@ -32,9 +33,6 @@ const composeFunction = (...functions) => {
 
 const convertStyleObjToArray = (obj) =>
       Object.entries(obj); // padding: '12px 20px' => ["padding", "12px 20px"]
-   
-const createCss = (values) => 
-      values.map(convertToCss);
    
 const convertToCss = ( [property, value] ) => {
    let regex = /[A-Z]/;
@@ -51,12 +49,13 @@ const convertToCss = ( [property, value] ) => {
 }
 
 const createEl = (el, css) =>
-      `<${el} style="${ [...css].join('') }">Oi</${el}>`;
+      `<${el} style="${ [...css].join('') }"> :D </${el}>`;
 
+const map = (callback) => (array) => array.map(callback);
 
-const generateCSS = composeFunction(
+const generateCSS = pipe(
    convertStyleObjToArray,
-   createCss
+   map(convertToCss)
 );
 
 document.body.innerHTML = createEl( 'div', generateCSS(style) );
